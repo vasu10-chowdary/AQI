@@ -1,0 +1,17 @@
+{
+  "name": "urban-air-quality-assistant",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Saaf Saans — a GenAI-powered urban air quality assistant for winter smog in Indian cities.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0",
+    "vitest": "^3.2.0"
+  }
+}

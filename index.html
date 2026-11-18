@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Urban Air Quality Assistant — Saaf Saans</title>
+    <meta
+      name="description"
+      content="A calm, personalised plan for winter smog in Indian cities: live AQI, low-emission routines, indoor air fixes, sustainable swaps and honest impact estimates."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f5f7f4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a1210" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <script>
+      // Hide the JS-built sections until init finishes so the first paint cannot
+      // be followed by a large layout shift. Revealed by main.js in a finally.
+      document.documentElement.classList.add('js-loading');
+      window.addEventListener('load', function () {
+        window.setTimeout(function () {
+          document.documentElement.classList.remove('js-loading');
+        }, 3000);
+      });
+    </script>
+    <link rel="preconnect" href="https://air-quality-api.open-meteo.com" crossorigin />
+    <link rel="preconnect" href="https://geocoding-api.open-meteo.com" crossorigin />
+    <link rel="preconnect" href="https://generativelanguage.googleapis.com" crossorigin />
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <rect width="32" height="32" rx="8" fill="currentColor" opacity="0.14" />
+            <path
+              d="M7 12.5h11a3.5 3.5 0 1 0-3.5-3.5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            />
+            <path
+              d="M7 18.5h16a3 3 0 1 1-3 3"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            />
+            <path d="M7 24h8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+          </svg>
+          <span class="brand-text">
+            <span class="brand-name brand-name-long" data-i18n="appTitle">Urban Air Quality Assistant</span>
+            <span class="brand-name brand-name-short">Saaf Saans</span>
+            <span class="brand-sub" data-i18n="appShort">Winter smog, handled calmly</span>
+          </span>
+        </div>
+
+        <div class="header-actions">
+          <div class="lang-field">
+            <label class="sr-only" for="lang-select" data-i18n="lang.label">Language</label>
+            <select id="lang-select" class="lang-select"></select>
+          </div>
+          <button type="button" id="theme-toggle" class="icon-btn" aria-pressed="false">
+            <span class="icon-btn-icon" aria-hidden="true">☾</span>
+            <span class="sr-only" id="theme-label">Switch theme</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <section class="hero-intro" aria-labelledby="page-title">
+        <p class="eyebrow" data-i18n="heroEyebrow">PromptWars Challenge 06</p>
+        <h1 id="page-title" data-i18n="appTitle">Urban Air Quality Assistant</h1>
+        <p class="lede" data-i18n="tagline">
+          A calm, practical plan for smoggy days — tailored to your city, your home and how you get
+          around.
+        </p>
+        <p class="safety-inline">
+          <span aria-hidden="true">ℹ️</span>
+          <span data-i18n="safetyShort"
+            >General information, not medical advice. See a doctor for symptoms that persist.</span
+          >
+        </p>
+      </section>
+
+      <div id="location-root"></div>
+      <div id="overview-root"></div>
+      <div id="profile-root"></div>
+      <div id="plan-root"></div>
+      <div id="timeline-root"></div>
+      <div id="chart-root"></div>
+      <div id="simulator-root"></div>
+      <div id="chat-root"></div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p data-i18n="footer.sources">Data: Open-Meteo Air Quality and Geocoding</p>
+        <p class="fine">
+          <span data-i18n="footer.built">Built for PromptWars Challenge 06</span> ·
+          <span data-i18n="footer.note"
+            >Impact figures are first-order estimates for comparison, not measurements.</span
+          >
+        </p>
+        <p class="fine" data-i18n="safetyDoctor">
+          If you have trouble breathing, chest pain, fever or a cough that will not settle, please
+          see a doctor.
+        </p>
+      </div>
+    </footer>
+
+    <div class="sr-only" role="status" aria-live="polite" id="live-region"></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
